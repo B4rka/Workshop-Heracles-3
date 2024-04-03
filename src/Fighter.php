@@ -4,6 +4,8 @@ namespace App;
 
 use App\Shield;
 use App\Weapon;
+use App\Hero;
+use App\Monster;
 
 class Fighter
 {
@@ -14,77 +16,37 @@ class Fighter
     private int $strength;
     private int $dexterity;
     private string $image = 'fighter.svg';
+    private int $x;
+    private int $y;
+    protected float $range;
 
     private int $life = self::MAX_LIFE;
-
-    private ?Weapon $weapon = null;
-    private ?Shield $shield = null;
 
     public function __construct(
         string $name,
         int $strength = 10,
         int $dexterity = 5,
-        string $image = 'fighter.svg'
+        string $image = 'fighter.svg',
+        float $range = 1.0,
     ) {
         $this->name = $name;
         $this->strength = $strength;
         $this->dexterity = $dexterity;
         $this->image = $image;
+        $this->range=$range;
     }
 
     
     public function getDamage(): int
     {
-        $damage = $this->getStrength();
-        if($this->getWeapon() !== null) {
-            $damage += $this->getWeapon()->getDamage();
-        }
-        return $damage;
+        return $this->strength;
     }
 
     public function getDefense(): int
     {
-        $defense = $this->getDexterity();
-        if ($this->getShield() !== null) {
-            $defense += $this->getShield()->getProtection();
-        }    
-
-        return $defense;
+        return $this->dexterity;
     }
 
-     /**
-     * Get the value of weapon
-     */ 
-    public function getWeapon(): ?Weapon
-    {
-        return $this->weapon;
-    }
-
-    /**
-     * Set the value of weapon
-     *
-     */ 
-    public function setWeapon(Weapon $weapon): void
-    {
-        $this->weapon = $weapon;
-    }
-
-    /**
-     * Get the value of shield
-     */ 
-    public function getShield(): ?Shield
-    {
-        return $this->shield;
-    }
-
-    /**
-     * Set the value of shield
-     *
-     */ 
-    public function setShield(?Shield $shield): void
-    {
-        $this->shield = $shield;
-    }
 
     /**
      * Get the value of name
@@ -169,5 +131,30 @@ class Fighter
     public function setDexterity($dexterity): void
     {
         $this->dexterity = $dexterity;
+    }
+
+    public function getX()
+    {
+        return $this->x;
+    }
+
+    public function setX(int $x)
+    {
+        $this->x=$x;
+    }
+
+    public function getY()
+    {
+        return $this->y;
+    }
+
+    public function setY(int $y)
+    {
+        $this->y=$y;
+    }
+
+    public function getRange()
+    {
+        return $this->range;
     }
 }
