@@ -17,7 +17,7 @@ $bird2 = new Monster('Bird', 25, 12, 'bird.svg');
 $bird3 = new Monster('Bird', 25, 12, 'bird.svg');
 $arena = new Arena($heracles, [$bird1, $bird2, $bird3]);
 $heracles->setX(0);
-$heracles->setY(9);
+$heracles->setY(4);
 $bird1->setX(5);
 $bird1->setY(0);
 $bird2->setX(5);
@@ -34,7 +34,7 @@ $heracles->setShield($shield);
 $bow = new Weapon(8, 5, 'bow.svg');
 $heracles->setWeapon($bow);
 
-var_dump($heracles->getRange());
+// var_dump($heracles->getRange());
 
 /** FIN DE LA ZONE A MODIFIER **/
 /** ⛔ Ne pas modifier en dessous ⛔ **/

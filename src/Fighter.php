@@ -27,7 +27,7 @@ class Fighter
         int $strength = 10,
         int $dexterity = 5,
         string $image = 'fighter.svg',
-        float $range = 1.0,
+        float $range = 1,
     ) {
         $this->name = $name;
         $this->strength = $strength;
